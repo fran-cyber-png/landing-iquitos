@@ -1062,6 +1062,55 @@ a {
 
 /* ===== RESPONSIVE ===== */
 
+/* Laptop 1366px */
+@media (max-width: 1440px) {
+  .hero__nav {
+    padding: 2rem 5rem;
+  }
+
+  .hero__content {
+    width: 600px;
+  }
+
+  .hero__badge {
+    left: 10%;
+  }
+
+  .hero__info-bar {
+    width: 80%;
+    padding: 20px 40px;
+  }
+
+  .hero__info-label-group {
+    font-size: 1.1rem;
+  }
+
+  .hero__info-number {
+    font-size: 2.4rem;
+  }
+
+  .objetivo__container,
+  .speaker__container,
+  .beneficios__container {
+    padding: 0 2rem;
+    gap: 3rem;
+  }
+
+  .inscripcion__container,
+  .cronograma__container,
+  .como-inscribirte__container {
+    padding: 0 2rem;
+  }
+
+  .inversion__container {
+    padding: 0 2rem;
+  }
+
+  .speaker__name {
+    font-size: 3.5rem;
+  }
+}
+
 /* Tablet */
 @media (max-width: 1199px) {
   .section-title {
