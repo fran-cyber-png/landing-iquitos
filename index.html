@@ -26,10 +26,10 @@
         <img src="assets/images/logo-escuela.png" alt="Escuela de Inteligencia y Estrategia" class="nav-logo">
       </div>
     </nav>
+    <div class="hero__badge">
+      <img src="assets/images/sello.png" alt="Elecciones 2026" class="hero__sello">
+    </div>
     <div class="hero__content">
-      <div class="hero__badge">
-        <img src="assets/images/sello.png" alt="Elecciones 2026" class="hero__sello">
-      </div>
       <div class="hero__text">
         <img src="assets/images/titulo-hero.png" alt="Primera Cumbre de Estrategia Política" class="hero__title-img">
         <img src="assets/images/topics-bar.png" alt="Tecnopolítica - War Room - Cartografía - Estrategia" class="hero__topics-img">
@@ -194,7 +194,7 @@
       </div>
       <div class="inscripcion__cta">
         <div class="inscripcion__cert-badge">Certificado por solo S/.150</div>
-        <a href="#inversion" class="inscripcion__cert-link">Ver Certificado</a>
+        <a href="#" class="inscripcion__cert-link" id="btnVerCertificado">Ver Certificado</a>
         <p class="inscripcion__note">Monto no incluido en pago de ingreso*</p>
       </div>
     </div>
@@ -363,6 +363,15 @@
       <p class="reserva__text reserva__text--underline">Reserva tu participación con anticipación.</p>
     </div>
   </section>
+
+  <!-- MODAL CERTIFICADO -->
+  <div class="modal" id="modalCertificado">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <button class="modal__close" id="modalClose">&times;</button>
+      <img src="assets/images/CERTIFICADO CUMBRE- de prueba.png" alt="Certificado Cumbre de Estrategia Política">
+    </div>
+  </div>
 
   <!-- WHATSAPP FLOATING BUTTON -->
   <a href="https://wa.me/51999999999" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="Contactar por WhatsApp">

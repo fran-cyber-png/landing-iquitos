@@ -118,20 +118,25 @@ a {
 }
 
 .hero__content {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 3;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  padding: 0 15rem;
-  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 710px;
+  max-width: 90%;
 }
 
 .hero__badge {
-  flex-shrink: 0;
-  align-self: flex-end;
-  margin-bottom: 2rem;
+  position: absolute;
+  left: 240px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
 }
 
 .hero__sello {
@@ -141,19 +146,23 @@ a {
 
 .hero__text {
   text-align: center;
-  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }
 
 .hero__title-img {
-  max-width: 560px;
-  margin: 0 auto 1rem;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .hero__topics-img {
   max-width: 560px;
   width: 100%;
   height: auto;
-  margin: 0 auto 1.2rem;
+  margin: 0 auto;
 }
 
 .hero__subtitle {
@@ -168,18 +177,48 @@ a {
 }
 
 .hero__info-bar {
-  position: relative;
-  z-index: 3;
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
   background: var(--primary-dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.3rem 3rem;
+  padding: 25px 50px;
   max-width: 1440px;
-  margin: 0 auto;
   width: 75%;
-  border-top: 3px solid var(--accent-yellow);
+  border: 4px solid var(--accent-yellow);
+  border-radius: 16px;
+  backdrop-filter: blur(37.5px);
+}
+
+.hero__info-bar.sticky {
+  position: fixed;
+  top: 0;
+  bottom: auto;
+  left: 0;
+  transform: none;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  border: none;
   border-bottom: 3px solid var(--accent-yellow);
+  padding: 15px 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero__info-item {
@@ -953,6 +992,63 @@ a {
   50% { box-shadow: 0 4px 24px rgba(34, 195, 94, 0.7); }
 }
 
+/* ===== MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal__content {
+  position: relative;
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+}
+
+.modal__content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+.modal__close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 44px;
+  height: 44px;
+  background: var(--white);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.modal__close:hover {
+  background: var(--accent-yellow);
+}
+
 /* ===== ANIMATIONS ===== */
 .fade-in {
   opacity: 0;
@@ -978,9 +1074,7 @@ a {
   }
 
   .hero__content {
-    flex-direction: column;
-    text-align: center;
-    padding: 0 3rem;
+    width: 80%;
   }
 
   .hero__sello {
@@ -988,14 +1082,14 @@ a {
   }
 
   .hero__badge {
-    align-self: center;
+    left: 5%;
   }
 
   .hero__info-bar {
     width: 90%;
-    padding: 1.2rem 2rem;
+    padding: 20px 2rem;
     gap: 1.5rem;
-    justify-content: center;
+    bottom: 30px;
   }
 
   .objetivo__container,
@@ -1044,11 +1138,20 @@ a {
   }
 
   .hero__content {
-    padding: 2rem 1.5rem;
+    width: 90%;
   }
 
   .hero__sello {
-    width: 100px;
+    width: 80px;
+  }
+
+  .hero__badge {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    align-self: center;
+    margin-bottom: 1rem;
   }
 
   .hero__title-img {
@@ -1062,9 +1165,9 @@ a {
   .hero__info-bar {
     flex-direction: column;
     gap: 1rem;
-    padding: 1.5rem;
-    width: 100%;
-    justify-content: center;
+    padding: 1.2rem 1.5rem;
+    width: 92%;
+    bottom: 20px;
   }
 
   .hero__info-item {

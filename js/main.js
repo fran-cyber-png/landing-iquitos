@@ -19,6 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   fadeElements.forEach(el => observer.observe(el));
 
+  // Sticky info bar
+  const infoBar = document.querySelector('.hero__info-bar');
+  const hero = document.getElementById('hero');
+  if (infoBar && hero) {
+    window.addEventListener('scroll', () => {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      if (heroBottom <= 80) {
+        infoBar.classList.add('sticky');
+      } else {
+        infoBar.classList.remove('sticky');
+      }
+    });
+  }
+
   // Form visual validation
   const form = document.getElementById('inscripcionForm');
   if (form) {
@@ -34,6 +48,31 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.style.color = '';
         form.reset();
       }, 3000);
+    });
+  }
+
+  // Modal certificado
+  const modal = document.getElementById('modalCertificado');
+  const btnVer = document.getElementById('btnVerCertificado');
+  const btnClose = document.getElementById('modalClose');
+  const modalOverlay = modal?.querySelector('.modal__overlay');
+
+  if (btnVer && modal) {
+    btnVer.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    const closeModal = () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    btnClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
     });
   }
 
